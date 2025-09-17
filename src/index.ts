@@ -40,6 +40,38 @@ app.on("PUT", ["/:bucket", "/:bucket/"], async (c) => {
 
 app.on("GET", ["/:bucket", "/:bucket/"], async (c) => {
 	const bucket = c.req.param("bucket");
+	if (c.req.query("accelerate") != null) {
+		// GetBucketAccelerateConfiguration
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("acl") != null) {
+		// GetBucketAcl
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("analytics") != null) {
+		// GetBucketAnalyticsConfiguration
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("cors") != null) {
+		// GetBucketCors
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("encryption") != null) {
+		// GetBucketEncryption
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("intelligent-tiering") != null) {
+		// GetBucketIntelligentTieringConfiguration
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("inventory") != null) {
+		// GetBucketInventoryConfiguration
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("lifecycle") != null) {
+		// GetBucketLifecycleConfiguration
+		throw new S3NotImplementedError();
+	}
 	if (c.req.query("location") != null) {
 		// GetBucketLocation
 		throw new S3NotImplementedError();
@@ -48,32 +80,61 @@ app.on("GET", ["/:bucket", "/:bucket/"], async (c) => {
 		// GetBucketLogging
 		throw new S3NotImplementedError();
 	}
-	if (c.req.query("lifecycle") != null) {
-		// GetBucketLifecycleConfiguration
+	if (c.req.query("metadataConfiguration") != null) {
+		// GetBucketMetadataConfiguration
 		throw new S3NotImplementedError();
 	}
-	if (c.req.query("website") != null) {
-		// GetBucketWebsite
+	if (c.req.query("metadataTable") != null) {
+		// GetBucketMetadataTable
 		throw new S3NotImplementedError();
 	}
-	if (c.req.query("acl") != null) {
-		// GetBucketAcl
+	if (c.req.query("metrics") != null) {
+		// GetBucketMetricsConfiguration
 		throw new S3NotImplementedError();
 	}
-	if (c.req.query("versioning") != null) {
-		// GetBucketVersioning
+	if (c.req.query("notification") != null) {
+		// GetBucketNotification
 		throw new S3NotImplementedError();
 	}
 	if (c.req.query("ownershipControls") != null) {
 		// GetBucketOwnershipControls
 		throw new S3NotImplementedError();
 	}
-	if (c.req.query("versions") != null) {
-		// ListObjectVersions
+	if (c.req.query("policy") != null) {
+		// GetBucketPolicy
 		throw new S3NotImplementedError();
 	}
+	if (c.req.query("policyStatus") != null) {
+		// GetBucketPolicyStatus
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("replication") != null) {
+		// GetBucketReplication
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("requestPayment") != null) {
+		// GetBucketRequestPayment
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("tagging") != null) {
+		// GetBucketTagging
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("versioning") != null) {
+		// GetBucketVersioning
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("website") != null) {
+		// GetBucketWebsite
+		throw new S3NotImplementedError();
+	}
+
 	if (c.req.query("uploads") != null) {
 		// ListMultipartUploads
+		throw new S3NotImplementedError();
+	}
+	if (c.req.query("versions") != null) {
+		// ListObjectVersions
 		throw new S3NotImplementedError();
 	}
 	if (c.req.query("list-type") === "2") {
