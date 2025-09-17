@@ -7,6 +7,7 @@ import { handleS3ListObjects } from "./handlers/s3/list-objects.js";
 import { handleS3PutObject } from "./handlers/s3/put-object.js";
 import { returnXML } from "./utils/return-xml.js";
 import { returnS3Error, S3Error } from "./utils/s3-error.js";
+import { handleS3DeleteBucket } from "./handlers/s3/delete-bucket.js";
 
 const app = new Hono();
 
@@ -127,6 +128,125 @@ app.on("GET", ["/:bucket", "/:bucket/"], async (c) => {
 			delimiter: c.req.query("delimiter"),
 		}),
 	);
+});
+
+app.on("DELETE", ["/:bucket", "/:bucket/"], async (c) => {
+	const bucket = c.req.param("bucket");
+	if (c.req.query("analytics") != null) {
+		// DeleteBucketAnalyticsConfiguration
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("cors") != null) {
+		// DeleteBucketCors
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("encryption") != null) {
+		// DeleteBucketEncryption
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("intelligent-tiering") != null) {
+		// DeleteBucketIntelligentTieringConfiguration
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("inventory") != null) {
+		// DeleteBucketInventoryConfiguration
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("lifecycle") != null) {
+		// DeleteBucketLifecycle
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("metadataConfiguration") != null) {
+		// DeleteBucketMetadataConfiguration
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("metadataTable") != null) {
+		// DeleteBucketMetadataTable
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("metrics") != null) {
+		// DeleteBucketMetricsConfiguration
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("ownershipControls") != null) {
+		// DeleteBucketOwnershipControls
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("policy") != null) {
+		// DeleteBucketPolicy
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("replication") != null) {
+		// DeleteBucketReplication
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("tagging") != null) {
+		// DeleteBucketTagging
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+	if (c.req.query("website") != null) {
+		// DeleteBucketWebsite
+		throw new S3Error(
+			501,
+			"NotImplemented",
+			"A header you provided implies functionality that is not implemented.",
+		);
+	}
+
+	await handleS3DeleteBucket(bucket);
+	return c.body(null, 204, {})
 });
 
 app.get("/:bucket/:key{.+}", async (c) => {
