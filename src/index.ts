@@ -6,7 +6,7 @@ import { handleS3ListBuckets } from "./handlers/s3/list-buckets.js";
 import { handleS3ListObjects } from "./handlers/s3/list-objects.js";
 import { handleS3PutObject } from "./handlers/s3/put-object.js";
 import { returnXML } from "./utils/return-xml.js";
-import { returnS3Error, S3Error } from "./utils/s3-error.js";
+import { returnS3Error, S3Error, S3NotImplementedError } from "./utils/s3-error.js";
 import { handleS3DeleteBucket } from "./handlers/s3/delete-bucket.js";
 
 const app = new Hono();
@@ -42,83 +42,43 @@ app.on("GET", ["/:bucket", "/:bucket/"], async (c) => {
 	const bucket = c.req.param("bucket");
 	if (c.req.query("location") != null) {
 		// GetBucketLocation
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("logging") != null) {
 		// GetBucketLogging
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("lifecycle") != null) {
 		// GetBucketLifecycleConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("website") != null) {
 		// GetBucketWebsite
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("acl") != null) {
 		// GetBucketAcl
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("versioning") != null) {
 		// GetBucketVersioning
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("ownershipControls") != null) {
 		// GetBucketOwnershipControls
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("versions") != null) {
 		// ListObjectVersions
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("uploads") != null) {
 		// ListMultipartUploads
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("list-type") === "2") {
 		// ListObjectsV2
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	// ListObjects (v1)
 	return returnXML(
@@ -134,115 +94,59 @@ app.on("DELETE", ["/:bucket", "/:bucket/"], async (c) => {
 	const bucket = c.req.param("bucket");
 	if (c.req.query("analytics") != null) {
 		// DeleteBucketAnalyticsConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("cors") != null) {
 		// DeleteBucketCors
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("encryption") != null) {
 		// DeleteBucketEncryption
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("intelligent-tiering") != null) {
 		// DeleteBucketIntelligentTieringConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("inventory") != null) {
 		// DeleteBucketInventoryConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("lifecycle") != null) {
 		// DeleteBucketLifecycle
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("metadataConfiguration") != null) {
 		// DeleteBucketMetadataConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("metadataTable") != null) {
 		// DeleteBucketMetadataTable
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("metrics") != null) {
 		// DeleteBucketMetricsConfiguration
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("ownershipControls") != null) {
 		// DeleteBucketOwnershipControls
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("policy") != null) {
 		// DeleteBucketPolicy
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("replication") != null) {
 		// DeleteBucketReplication
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("tagging") != null) {
 		// DeleteBucketTagging
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 	if (c.req.query("website") != null) {
 		// DeleteBucketWebsite
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	await handleS3DeleteBucket(bucket);
@@ -268,65 +172,37 @@ app.put("/:bucket/:key{.+}", async (c) => {
 
 	if (c.req.query("acl") != null) {
 		// PutObjectAcl
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.query("legal-hold") != null) {
 		// PutObjectLegalHold
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.query("retention") != null) {
 		// PutObjectRetention
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.query("tagging") != null) {
 		// PutObjectTagging
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.query("renameObject") != null) {
 		// RenameObject
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.query("partNumber") != null) {
 		// UploadPart or UploadPartCopy
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	if (c.req.header("x-amz-copy-source") != null) {
 		// CopyObject
-		throw new S3Error(
-			501,
-			"NotImplemented",
-			"A header you provided implies functionality that is not implemented.",
-		);
+		throw new S3NotImplementedError();
 	}
 
 	const stream = c.req.raw.body;

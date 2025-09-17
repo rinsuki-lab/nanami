@@ -40,3 +40,9 @@ export class S3Error extends Error {
 		super(`${errorCode} (${statusCode}): ${errorMessage}`);
 	}
 }
+
+export class S3NotImplementedError extends S3Error {
+	constructor() {
+		super(501, "NotImplemented", "A header you provided implies functionality that is not implemented.");
+	}
+}
