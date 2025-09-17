@@ -28,7 +28,7 @@ app.get("/", async (c) => {
 	return returnXML(c, await handleS3ListBuckets());
 });
 
-app.put("/:bucket/", async (c) => {
+app.on("PUT", ["/:bucket", "/:bucket/"], async (c) => {
 	const bucket = c.req.param("bucket");
 	const res = await handleS3CreateBucket(bucket);
 
@@ -37,7 +37,7 @@ app.put("/:bucket/", async (c) => {
 	});
 });
 
-app.get("/:bucket/", async (c) => {
+app.on("GET", ["/:bucket", "/:bucket/"], async (c) => {
 	const bucket = c.req.param("bucket");
 	if (c.req.query("location") != null) {
 		// GetBucketLocation
